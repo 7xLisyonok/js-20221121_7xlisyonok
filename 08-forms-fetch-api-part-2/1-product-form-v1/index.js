@@ -206,8 +206,7 @@ export default class ProductForm {
   }
 
   async render() {
-    await this.getSubCategories();
-    await this.getProductInfo();
+    await Promise.all([this.getSubCategories(), this.getProductInfo()]);
 
     const element = document.createElement("div");
     element.innerHTML = this.getTemplate();

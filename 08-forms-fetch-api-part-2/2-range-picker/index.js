@@ -1,4 +1,6 @@
 const LOCALE = "ru";
+const WEEKDAYS_SHORT = ["пн", "вт", "ср", "чт", "пт", "сб", "вс"];
+
 export default class RangePicker {
   documentClick = (event) => {
     // Клик по одному из дней
@@ -261,13 +263,7 @@ export default class RangePicker {
   getDayOfWeekTemplate() {
     return `
       <div class="rangepicker__day-of-week">
-        <div>Пн</div>
-        <div>Вт</div>
-        <div>Ср</div>
-        <div>Чт</div>
-        <div>Пт</div>
-        <div>Сб</div>
-        <div>Вс</div>
+        ${WEEKDAYS_SHORT.map((day) => `<div>${day}</div>`).join("")}
       </div>
     `;
   }
@@ -276,8 +272,8 @@ export default class RangePicker {
     return `
       <div class="rangepicker">
         <div class="rangepicker__input" data-element="input">
-          <span data-element="from">11/26/19</span> -
-          <span data-element="to">12/26/19</span>
+          <span data-element="from"></span> -
+          <span data-element="to"></span>
         </div>
         <div class="rangepicker__selector" data-element="selector"></div>
       </div>
